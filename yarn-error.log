@@ -1,0 +1,80 @@
+Arguments: 
+  /usr/bin/node /usr/share/yarn/bin/yarn.js start
+
+PATH: 
+  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/theo/Android/Sdk/emulator:/home/theo/Android/Sdk/tools:/home/theo/Android/Sdk/tools/bin:/home/theo/Android/Sdk/platform-tools
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  14.18.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  SyntaxError: /home/theo/Bureau/easy-shop/package.json: Unexpected token } in JSON at position 1462
+      at JSON.parse (<anonymous>)
+      at /usr/share/yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/share/yarn/lib/cli.js:310:30)
+      at /usr/share/yarn/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "main": "node_modules/expo/AppEntry.js",
+    "scripts": {
+      "start": "expo start",
+      "android": "expo start --android",
+      "ios": "expo start --ios",
+      "web": "expo start --web",
+      "eject": "expo eject"
+    },
+    "dependencies": {
+      "@react-native-community/masked-view": "^0.1.10",
+      "@react-navigation/bottom-tabs": "^5.11.2",
+      "@react-navigation/material-top-tabs": "^5.3.10",
+      "@react-navigation/native": "^5.8.10",
+      "@react-navigation/stack": "^5.12.8",
+      "axios": "^0.21.0",
+      "expo": "^44.0.0",
+      "expo-image-picker": "~12.0.1",
+      "expo-status-bar": "~1.2.0",
+      "jwt-decode": "^3.1.2",
+      "mime": "^2.4.7",
+      "native-base": "^2.13.14",
+      "react": "17.0.1",
+      "react-dom": "17.0.1",
+      "react-native": "0.64.3",
+      "react-native-gesture-handler": "~2.1.0",
+      "react-native-keyboard-aware-scroll-view": "^0.9.3",
+      "react-native-reanimated": "~2.3.1",
+      "react-native-safe-area-context": "^3.3.2",
+      "react-native-screens": "~3.10.1",
+      "react-native-swipe-list-view": "^3.2.5",
+      "react-native-swiper": "^1.6.0",
+      "react-native-tab-view": "^2.15.2",
+      "react-native-toast-message": "^1.4.1",
+      "react-native-vector-icons": "^7.1.0",
+      "react-native-web": "0.17.1",
+      "react-navigation": "^4.4.3",
+      "react-redux": "^7.2.2",
+      "redux": "^4.0.5",
+      "redux-devtools-extension": "^2.13.8",
+      "redux-logger": "^3.0.6",
+      "redux-thunk": "^2.3.0",
+      "styled-components": "^5.2.1",
+      
+    },
+    "devDependencies": {
+      "@babel/core": "^7.12.9"
+    },
+    "private": true
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

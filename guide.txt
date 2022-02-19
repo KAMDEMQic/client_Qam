@@ -1,0 +1,8 @@
+la chaine de connexion au serveur se trouve dans assets/baseUrl.js
+le code et la requete au serveur pour la connexion & inscription sont situer dans screens/User ....
+ Login pour la connexion & register pour l;inscription ....les requetes sont possibles par la bibliotheque axios
+
+le fichier auth.actions.js dans context/actions contient la requete qui recupere le token d'authentification
+et de recuperation des info du user....
+
+
