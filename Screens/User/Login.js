@@ -81,6 +81,20 @@ const Login = (props) => {
         onPress={() => props.navigation.navigate("Register")}>
           <Text style={{ color: "white" }}>Register</Text>
         </EasyButton>
+
+        <EasyButton
+        large
+        secondary 
+        onPress={() => props.navigation.navigate("VerifyNumber")}>
+          <Text style={{ color: "white" }}>VerifyNumber</Text>
+        </EasyButton>
+        <EasyButton
+                secondary
+                medium
+                onPress={() => props.navigation.navigate("ProductForm")}
+            >
+                <Text style={styles.buttonText}>Products</Text>
+            </EasyButton>
       </View>
     </FormContainer>
   );

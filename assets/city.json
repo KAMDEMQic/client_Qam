@@ -1,0 +1,26 @@
+[ 
+
+    {"name": "choose your city or the nearest city ", "code": ""},
+    {"name": "Douala", "code": "DL"}, 
+    {"name": "Yaoundé", "code": "YD"}, 
+    {"name": "Garoua", "code": "GR"}, 
+    {"name": "Bamenda", "code": "BD"}, 
+    {"name": "Maroua", "code": "MA"}, 
+    {"name": "Nkongsamba", "code": "NS"}, 
+    {"name": "Bafoussam", "code": "BF"}, 
+    {"name": "Ngaoundéré", "code": "NG"}, 
+    {"name": "Bertoua", "code": "BR"}, 
+    {"name": "Loum", "code": "LM"}, 
+    {"name": "Kumba", "code": "KB"}, 
+    {"name": "Edéa", "code": "ED"}, 
+    {"name": "Kumbo", "code": "KB"}, 
+    {"name": "Foumban", "code": "FB"}, 
+    {"name": "Mbouda", "code": "MD"}, 
+    {"name": "Dschang", "code": "DS"}, 
+    {"name": "Limbé", "code": "LB"}, 
+    {"name": "Ebolowa", "code": "EB"}, 
+    {"name": "Kousséri", "code": "KI"}, 
+    {"name": "Bangangté", "code": "BT"}, 
+    {"name": "Bafia", "code": "BI"}, 
+    {"name": "Obala", "code": "OB"}
+    ]

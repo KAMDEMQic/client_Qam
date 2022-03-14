@@ -43,8 +43,7 @@ const ProductForm = (props) => {
     useEffect(() => {
 
         if(!props.route.params) {
-            setItem(null);
-        } else {
+          } else {
             setItem(props.route.params.item);
             setBrand(props.route.params.item.brand);
             setName(props.route.params.item.name);
@@ -55,7 +54,8 @@ const ProductForm = (props) => {
             setCategory(props.route.params.item.category._id);
             setCountInStock(props.route.params.item.countInStock.toString());
         }
-
+    setItem(null);
+      
         AsyncStorage.getItem("jwt")
             .then((res) => {
                 setToken(res)
@@ -173,10 +173,10 @@ const ProductForm = (props) => {
                         text1: "New Product added",
                         text2: "",
                     });
-                    setTimeout(() => {
-                        console.log(res.data);
-                        props.navigation.navigate("Products");
-                    }, 500);
+                    // setTimeout(() => {
+                    //     console.log(res.data);
+                    //     props.navigation.navigate("Products");
+                    // }, 500);
                     console.log(res.data);
                 }
             })
@@ -251,42 +251,34 @@ const ProductForm = (props) => {
             value={description}
             onChangeText={(text) => setDescription(text)}
            />
-              <View style={{
+                  <View style={styles.pic}>
+      <Item picker  style={{
             borderColor: 'transparent', 
             justifyContent:"center", 
             alignSelf:"center",
             width: "80%",
             marginTop: 6
             }}>
-          <Picker
-            mode="dropdown"
-            iosIcon={<Icon color={"#007aff"} name="arrow-down" />}
-            style={{ justifyContent: "center",
-                    alignSelf: "center",
-                    paddingTop: 7,
-                    paddingBottom: 7,
-                    paddingLeft: 20,
-                    borderRadius: 40,
-                    width: "80%",
-                    marginBottom: 15,
-                    backgroundColor: "rgba(102,102,102,0.6)" }}
-            placeholder="Select your Category"
-            selectedValue={pickerValue}
-            placeholderStyle={{ color: "#007aff" }}
-            placeholderIconColor= "#007aff"
-            onValueChange={itemValue => 
-                [setPickerValue(itemValue), setCategory(itemValue)]}
-          >
-            {/* {categories.map((c) => {
-                console.log("pickerValue = " + pickerValue);
-              return <Picker.Item key={c._id} label={c.name} value={c._id} />;
-            })} */}
-
-           {categories.map((c) => {
-            return <Picker key={c.id} label={c.name} value={c.name} />;
-           })}
-          </Picker>
-        </View>
+                    <Picker
+                        mode="dropdown"
+                        iosIcon={<Icon name="arrow-down" color={"#007aff"} />}
+                        style={{ width: undefined }}
+                        selectedValue={category}
+                        placeholder="Select your job"
+                        placeholderStyle={{ color: '#007aff' }}
+                        placeholderIconColor="#007aff"
+                        onValueChange={(e) => setCategory(e)}
+                    >
+                        {categories.map((c) => {
+                            return <Picker.Item 
+                                    key={c.code} 
+                                    label={c.name}
+                                    value={c.name}
+                                    />
+                        })}
+                    </Picker>
+                </Item>
+                </View>
 
            {err ? <Error message={err} /> : null}
            <View style={styles.buttonContainer}>
@@ -340,7 +332,14 @@ const styles = StyleSheet.create({
         padding: 8,
         borderRadius: 100,
         elevation: 20
-    }
+    },
+    example: {
+        marginVertical: 24,
+        padding: 10,
+        margin: 10,
+        fontSize:50,
+      
+      },
 })
 
 export default ProductForm;

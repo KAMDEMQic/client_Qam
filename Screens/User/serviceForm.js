@@ -21,6 +21,7 @@ import baseURL from "../../assets/common/baseUrl"
 import axios from "axios"
 import * as ImagePicker from "expo-image-picker"
 import mime from "mime";
+import DropDownPicker from 'react-native-dropdown-picker';
 
 const serviceForm = (props) => {
     
@@ -44,19 +45,6 @@ const serviceForm = (props) => {
 
     useEffect(() => {
 
-        if(!props.route.params) {
-            setItem(null);
-        } else {
-            setItem(props.route.params.item);
-            setstoreName(props.route.params.item.storeName);
-            setName(props.route.params.item.name);
-            setPrice(props.route.params.item.price.toString());
-            setDescription(props.route.params.item.description);
-            setMainImage(props.route.params.item.image);
-            setImage(props.route.params.item.image);
-            setCategory(props.route.params.item.category._id);
-            setCountInStock(props.route.params.item.countInStock.toString());
-        }
 
         AsyncStorage.getItem("jwt")
             .then((res) => {
@@ -69,6 +57,8 @@ const serviceForm = (props) => {
             .get(`${baseURL}categories`)
             .then((res) => setCategories(res.data))
             .catch((error) => alert("Error to load categories"));
+            // console.log(categories);
+
 
           (async () => {
             if (Platform.OS !== "web") {
@@ -82,9 +72,14 @@ const serviceForm = (props) => {
         })();
 
         return () => {
-            setCategories([])
+            setCategories([]);
+            
+             console.log(categories.length);
+
         }
     }, [])
+
+
 
     const pickImage = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -203,6 +198,28 @@ const serviceForm = (props) => {
            {/* <View style={styles.label}>
                <Text style={{ textDecorationLine: "underline"}}>Marques</Text>
            </View> */}
+
+<View style={styles.pic}>
+
+<Item picker>
+   <Picker
+       mode="dropdown"
+       iosIcon={<Icon color={"#007aff"} name="arrow-down" />}
+       style={{ width: undefined }}
+       placeholder="Select your Category"
+       selectedValue={category}
+       placeholderStyle={{ color: "#007aff"}}
+       placeholderIconColor="#007aff"
+       // onValueChange={(e) => [setPickerValue(e), setCategory(e)]}
+       onValueChange={(e) => setCategory(e)}
+
+   >
+       {categories.map((c) => {
+return <Picker.Item key={c.id} label={c.name} value={c.name} />;
+})}
+   </Picker>
+</Item> 
+</View>
            <Input 
             placeholder="storeName"
             name="storeName"
@@ -212,7 +229,6 @@ const serviceForm = (props) => {
            />
            {/* <View style={styles.label}>
                <Text style={{ textDecorationLine: "underline"}}>Nom</Text>
-
            </View> */}
            <Input 
             placeholder="Name"
@@ -280,23 +296,36 @@ const serviceForm = (props) => {
 
            />  
         </View>
-            
-            <Item picker>
-                <Picker
-                    mode="dropdown"
-                    iosIcon={<Icon color={"#007aff"} name="arrow-down" />}
-                    style={{ width: undefined }}
-                    placeholder="Select your Category"
-                    selectedValue={pickerValue}
-                    placeholderStyle={{ color: "#007aff"}}
-                    placeholderIconColor="#007aff"
-                    onValueChange={(e) => [setPickerValue(e), setCategory(e)]}
-                >
-                    {categories.map((c) => {
-            return <Picker.Item key={c._id} label={c.name} value={c._id} />;
-          })}
-                </Picker>
-           </Item>
+    
+
+
+
+
+{/* <DropDownPicker
+        style={{ marginVertical: 10 }}
+        // selectedValue={{ selectedLanguage }}
+        placeholder="Select your Category"
+        selectedValue={category}
+        placeholderStyle={{ color: "#007aff"}}
+        // placeholderIconColor="#007aff"
+        // onValueChange={(e) => [setPickerValue(e), setCategory(e)]}
+        onValueChange={(e) => setCategory(e)}
+      >
+        {categories.map((c) => (
+          <Picker.Item  key={c.id} label={c.name} value={c.name} />
+        ))}
+    </DropDownPicker> */}
+
+
+
+
+<EasyButton
+            large
+            secondary
+            onPress={() => props.navigation.navigate("AddOption")}
+          >
+            <Text style={{ color: "white" }}>AddOption</Text>
+          </EasyButton>
 
              
            {err ? <Error message={err} /> : null}
@@ -367,9 +396,20 @@ const styles = StyleSheet.create({
     },
     inputgauche:{
         marginRight: 8,
+        },
+        
+        pic:{
 
-     
-    },
+            width: '80%',
+            height: 50,
+                  borderRadius: 20,
+                  backgroundColor: 'white',
+                  margin: 10,
+                  borderRadius: 20,
+                  padding: 10,
+                  borderWidth: 2,
+                  borderColor: 'orange',
+                  justifyContent: 'center'},
 })
 
 export default serviceForm;

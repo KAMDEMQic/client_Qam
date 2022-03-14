@@ -19,7 +19,9 @@ const styles = StyleSheet.create({
         width: width,
         justifyContent: 'center',
         alignItems: 'center',
-    //   justifyContent: 'flex-end'
+    //    justifyContent: 'flex-end',
+    //    flexDirection: 'row',
+       justifyContent: 'space-between',
     },
     title: {
         fontSize: 30,

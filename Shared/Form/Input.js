@@ -22,7 +22,7 @@ const Input = (props) => {
 const styles = StyleSheet.create({
     input: {
         width: '80%',
-        height: 60,
+        height: 50,
         backgroundColor: 'white',
         margin: 10,
         borderRadius: 20,

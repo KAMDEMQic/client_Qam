@@ -100,26 +100,22 @@ const Checkout = (props) => {
                     keyboardType={"numeric"}
                     onChangeText={(text) => setZip(text)}
                 />
-                <Item picker>
-                    <Picker
-                        mode="dropdown"
-                        iosIcon={<Icon name="arrow-down" color={"#007aff"} />}
-                        style={{ width: undefined }}
-                        selectedValue={job}
-                        placeholder="Select your country"
-                        placeholderStyle={{ color: '#007aff' }}
-                        placeholderIconColor="#007aff"
-                        onValueChange={(e) => setJob(e)}
-                    >
-                        {job.map((j) => {
-                            return <Picker.Item 
-                                    key={j.code} 
-                                    label={j.name}
-                                    value={j.name}
-                                    />
-                        })}
-                    </Picker>
-                </Item>
+             <Item picker>
+      <Picker
+        mode="dropdown"
+        iosIcon={<Icon name="arrow-down" color={"#007aff"} />}
+        style={{  height: 50, width: 150 }}
+        selectedValue={country}
+        placeholder="Select your country"
+        placeholderStyle={{ color: "#007aff" }}
+        placeholderIconColor="#007aff"
+        onValueChange={(e) => setCountry(e)}
+      >
+        {countries.map((c) => {
+          return <Picker.Item key={c.code} label={c.name} value={c.name} />;
+        })}
+      </Picker>
+    </Item>
                 <View style={{ width: '80%', alignItems: "center" }}>
                     <Button title="Confirm" onPress={() => checkOut()}/>
                 </View>

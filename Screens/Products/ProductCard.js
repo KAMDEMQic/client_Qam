@@ -31,7 +31,7 @@ const ProductCard = (props) => {
                     + '...' : name
                 }
             </Text>
-            <Text style={styles.price}>FCFA{price}</Text>
+            <Text style={styles.price}>{price} XAF</Text>
 
             { countInStock > 0 ? (
                 <View style={{ marginBottom: 60 }}>
